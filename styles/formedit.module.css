@@ -1,0 +1,105 @@
+  /* Estilos generales para el login que se aplicarán a todas las pantallas */
+  /* Agrega tus estilos generales aquí */
+
+/* Estilos específicos para pantallas de celular */
+@media screen and (max-width: 600px) {
+ 
+  
+}
+/* Estilos específicos para pantallas de laptop */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  
+}
+/* Estilos específicos para pantallas wide */
+@media screen and (min-width: 1025px) {
+ 
+.maincontainer{
+    display: flex;
+    flex-direction: column;
+    align-items:  flex-start;
+    justify-content: space-between;
+
+    border: 1px solid grey;
+    box-shadow: 5px 5px 5px 0px grey;
+    border-radius: 10px;
+    padding: 10px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.maincontainer div{
+    margin-bottom: 5px;
+}
+
+.maincontainer h1{
+    font-size: large;
+    width: 200px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: 1px solid gray;
+}
+
+.maincontainer p{
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.datescontainer{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.datescontainer div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.datescontainer input{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0.5px solid grey;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.thirdpartycontainer textarea{
+    height: 60px;
+    width: 280px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    display: flex;
+    align-items: first baseline;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: smaller;
+}
+
+.progresscontainer input{
+    height: 20px;
+    width: 60px;
+}
+
+.buttoncontainer{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttoncontainer button{
+    background-color: #3968af;
+    color: white;
+    width: 150px;
+    height: 50px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 0px;
+}
+
+}
+
+
+

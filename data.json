@@ -1,0 +1,53 @@
+{
+"responsable": [
+    {
+      "id": 1,
+      "label": "Edgard Carrillo",
+      "value": "opcion1"
+    },
+    {
+      "id": 2,
+      "label": "Juan Perez",
+      "value": "opcion2"
+    },
+    {
+      "id": 3,
+      "label": "Nils Carrasco",
+      "value": "opcion3"
+    }
+  ],
+  "contratista": [
+    {
+      "id": 1,
+      "label": "Empresa 1",
+      "value": "empresa1"
+    },
+    {
+      "id": 2,
+      "label": "Empresa 2",
+      "value": "empresa2"
+    },
+    {
+      "id": 3,
+      "label": "Empresa 3",
+      "value": "empresa3"
+    }
+  ],
+  "estado": [
+    {
+      "id": 1,
+      "label": "No iniciado",
+      "value": "noiniciado"
+    },
+    {
+      "id": 2,
+      "label": "En proceso",
+      "value": "enproceso"
+    },
+    {
+      "id": 3,
+      "label": "Finalizado",
+      "value": "finalizado"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+
+.main{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+
+.table {
+    width: 80vw;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden; 
+}
+
+.table table{
+    border-collapse: collapse;
+    width: 100%;
+    /* margin: 0 auto;
+    border-radius: 10px; */
+}
+
+.table th{
+    padding: 1rem ;
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px gray;
+    border-left: 0px;
+    background-color: rgb(42, 42, 133);
+    color: white;
+}
+
+.table td{
+    padding: 1rem ;
+}
+
+
+.table table a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .table table a:hover {
+    text-decoration: none;
+    color: white;
+  }
+
+/* nth-child(even) esto hace que se aplique el estilo a todos los pares, para los impares se usa odd */
+.table tbody tr:nth-child(odd){
+    background-color: rgb(212, 209, 209);
+}
+
+.table tbody tr:hover{
+    background-color: rgb(75, 136, 192);
+    color: white;
+}
+
+/* Estilos para panel de filtros */
+
+
+/* Estilos específicos para pantallas de celular */
+@media screen and (max-width: 600px) {
+ 
+  
+}
+/* Estilos específicos para pantallas de laptop */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+
+    .optionbar{
+        width: 20vw;
+        height: 100vh;
+        border: 1px solid rgb(133, 130, 130);
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+    
+    .optionbarchild{
+        margin-bottom: 20px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    
+    .filtertitles{
+        border-bottom: 1px solid black;
+        display: flex;
+        align-items: center;
+        height: 30px;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .filteroptions{
+
+        width: 100px;
+        height: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: 5px;
+    }
+
+    .clearfilter{
+        margin-right: 20px;
+        border: none;
+        background: #18a324;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+      }
+    
+  
+}
+/* Estilos específicos para pantallas wide */
+@media screen and (min-width: 1025px) {
+ 
+    .optionbar{
+        width: 20vw;
+        height: 100vh;
+        border: 1px solid rgb(133, 130, 130);
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+    
+    .optionbarchild{
+        margin-bottom: 20px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    
+    .filtertitles{
+        border-bottom: 1px solid black;
+        display: flex;
+        align-items: center;
+        height: 30px;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .filteroptions{
+
+        width: 200px;
+        height: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: 5px;
+    }
+
+    .clearfilter{
+        margin-right: 20px;
+        border: none;
+        background: #084cdf;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+      }
+  
+}
+
+
+
+
+
+
+
