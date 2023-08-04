@@ -7,6 +7,8 @@ import styles from '../../styles/formedit.module.css'
 
 export default function ProjectDetails({ projectId }) {
 
+  console.log(projectId);
+
   const [showMessage, setShowMessage] = useState(false);
 
   const [user, setUser] = useState({
@@ -16,12 +18,14 @@ export default function ProjectDetails({ projectId }) {
 
   const [taskdata, setTaskdata] = useState({
     comentario: '',
-    inicio: '',
+    inicio: projectId.inicioreal,
     fin: '',
-    avance: ''
+    avance: projectId.avance
   });
 
   const [id, setId] = useState([])
+
+  const [fechaActual, setFechaActual] = useState(new Date().toLocaleString('es-ES'));
 
   const router = useRouter();
 
@@ -30,7 +34,6 @@ export default function ProjectDetails({ projectId }) {
     setId(projectId._id)
   }, [projectId._id])
 
-
   useEffect(() => {
     async function getprofile() {
       const response = await axios.get('/api/profile')
@@ -38,7 +41,6 @@ export default function ProjectDetails({ projectId }) {
     }
     getprofile();
   }, [])
-
 
   const taskupdate = (e) => {
     if (parseFloat(e.target.value) > 100 && e.target.name === "avance") {
@@ -54,7 +56,6 @@ export default function ProjectDetails({ projectId }) {
 
     }
   };
-
 
   const handleAddInfo = async () => {
 
@@ -75,18 +76,23 @@ export default function ProjectDetails({ projectId }) {
 
 
     setId(projectId._id);
+    console.log("enviando actualización");
     const response = await axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/data/updatedata`, {
       id: id,
       comentario: taskdata.comentario,
       inicio: taskdata.inicio,
       fin: taskdata.fin,
       avance: taskdata.avance,
-      usuario:  user.email});
+      usuario: user.email,
+      lastupdate: fechaActual,
+      vigente:"Si",
+      idtask: projectId.id
+    });
 
     setShowMessage(true);
     setTimeout(() => {
       setShowMessage(false);
-    }, 1200);
+    }, 3000);
     router.push("/review");
   };
 
@@ -99,6 +105,7 @@ export default function ProjectDetails({ projectId }) {
         <div className={styles.activitycontainer}>
           <h1>Actividad</h1>
           <p>{projectId.descripcion}</p>
+          <p>Ultima actualización: {projectId.lastupdate}</p>
         </div>
 
         <div className={styles.systemcontainer}>
