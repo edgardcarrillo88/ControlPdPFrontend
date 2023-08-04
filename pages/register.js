@@ -1,39 +1,38 @@
 import { useState } from 'react';
 import Navbar from '../component/navbar'
 import styles from "../styles/login.module.css";
-
+import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function register() {
 
 
-    const [datauser,setDatauser]= useState({
-        Nombres:"",
-        email:"",
-        Empresa:"",
-        Celular:"",
-        Password:"",
+    const [datauser, setDatauser] = useState({
+        usuario: "",
+        email: "",
+        contrasena: "",
+        empresa: "",
+        celular: "",
     })
 
-    const handleChange = (e) =>{
+    const handleChange = (e) => {
         setDatauser({
             ...datauser,
             [e.target.name]: e.target.value
         })
     }
 
-
-
+    const router = useRouter();
 
     const handleSubmit = async (e) => {
+        console.log("ejecutando");
         e.preventDefault();
-        console.log(credentials);
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users/verify`, credentials);
-        //const response = await axios.post(`/api/auth/login`, credentials);
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users/register`, datauser);
         console.log(response);
         if (response.status === 200) {
-          router.push("/dashboard");
+            router.push("/login");
         }
-      };
+    };
 
 
 
@@ -49,8 +48,7 @@ export default function register() {
                 >
                     <input
                         className={styles.input}
-                        name="Nombres"
-                        type="Nombres"
+                        name="usuario"
                         placeholder="Nombres"
                         onChange={handleChange}
                     />
@@ -64,7 +62,6 @@ export default function register() {
                     <input
                         className={styles.input}
                         name="empresa"
-                        type="empresa"
                         placeholder="empresa"
                         onChange={handleChange}
                     />
@@ -77,12 +74,12 @@ export default function register() {
                     />
                     <input
                         className={styles.input}
-                        name="password"
+                        name="contrasena"
                         type="password"
                         placeholder="Password"
                         onChange={handleChange}
                     />
-                    <button className={styles.button} type="submit">
+                    <button className={styles.button} onClick={handleSubmit} type="submit">
                         Registrarse
                     </button>
                 </form>

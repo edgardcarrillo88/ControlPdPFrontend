@@ -61,7 +61,58 @@
 /* Estilos específicos para pantallas de celular */
 @media screen and (max-width: 600px) {
  
-  
+    .table {
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 10px;
+        overflow-x: auto;
+        font-size: x-small;
+    }
+
+    .optionbar{
+        background-color: white;
+        border: 1px solid rgb(133, 130, 130);
+        width: 50%;
+        height: 100vh;
+        border-radius: 10px;
+        position: fixed;
+        z-index: 9999;
+    }
+
+    .optionbarchild{
+        margin-bottom: 20px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .filtertitles{
+        border-bottom: 1px solid black;
+        display: flex;
+        align-items: center;
+        height: 30px;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .filteroptions{
+
+        width: 100px;
+        height: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: 5px;
+    }
+
+    .clearfilter{
+        margin-right: 20px;
+        border: none;
+        background: #084cdf;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+      }
+
 }
 /* Estilos específicos para pantallas de laptop */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
@@ -107,6 +158,8 @@
         cursor: pointer;
         transition: background .2s ease-in-out;
       }
+
+      
     
   
 }

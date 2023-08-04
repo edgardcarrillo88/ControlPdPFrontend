@@ -24,14 +24,14 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(credentials);
-    // const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users/verify`, credentials, {
-    //   withCredentials: true,
-    // } );
-    const response = await axios.post(`/api/auth/login`, credentials);
-    console.log(response);
-    if (response.status === 200) {
-      router.push("/dashboard");
-    }
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users/verify`, { params: credentials });
+  
+    if (response.data.data === process.env.NEXT_PUBLIC_LOGIN_VERIFY && response.data.verify===true) {
+      const verifysesion = await axios.post(`/api/auth/login`, credentials);
+      if (verifysesion.status === 200) {
+        router.push("/review");
+      }
+    } 
   };
 
   return (

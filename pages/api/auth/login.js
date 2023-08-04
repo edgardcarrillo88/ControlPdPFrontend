@@ -5,12 +5,12 @@ export default function loginHandler(req, res) {
 
     const { email, password } = req.body
 
-    if (email === 'ea_carrillo@hotmail.com' && password === '123') {
+    if (email === req.body.email) {
         const token = jwt.sign({
             exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30,
             email: 'ea_carrillo@hotmail.com',
             username: 'carrillo'
-        }, 'secret')//este secret debería ser una variable de entorno
+        }, process.env.NEXT_PUBLIC_secrettoken)//este secret debería ser una variable de entorno
 
         const serialized = serialize('MyTokenName',token,{
             httpOnly:true,

@@ -2,12 +2,17 @@ import axios from 'axios';
 import Navbar from '../../component/navbar'
 import { getfiltereddata } from '../api/data/mongodb'
 import { useState, useEffect } from 'react';
+import { useRouter } from "next/router";
 import styles from '../../styles/formedit.module.css'
 
 export default function ProjectDetails({ projectId }) {
 
-  console.log(projectId);
-  console.log(projectId._id);
+  const [showMessage, setShowMessage] = useState(false);
+
+  const [user, setUser] = useState({
+    email: '',
+    username: ''
+  })
 
   const [taskdata, setTaskdata] = useState({
     comentario: '',
@@ -16,8 +21,9 @@ export default function ProjectDetails({ projectId }) {
     avance: ''
   });
 
-
   const [id, setId] = useState([])
+
+  const router = useRouter();
 
 
   useEffect(() => {
@@ -25,32 +31,69 @@ export default function ProjectDetails({ projectId }) {
   }, [projectId._id])
 
 
-  const taskupdate = (e) => {
+  useEffect(() => {
+    async function getprofile() {
+      const response = await axios.get('/api/profile')
+      setUser(response.data)
+    }
+    getprofile();
+  }, [])
 
+
+  const taskupdate = (e) => {
+    if (parseFloat(e.target.value) > 100 && e.target.name === "avance") {
+      setTaskdata({
+        ...taskdata,
+        [e.target.name]: 100,
+      });
+    } else {
       setTaskdata({
         ...taskdata,
         [e.target.name]: e.target.value,
       });
-      console.log(taskdata);
 
+    }
   };
 
 
   const handleAddInfo = async () => {
+
+    if (!taskdata.inicio && !projectId.inicioreal) {
+      alert("debe agregar la fecha de inicio")
+      return
+    }
+
+    if (!taskdata.avance) {
+      alert("debe agregar datos de avance")
+      return
+    }
+
+    if (parseFloat(taskdata.avance) === 100 && !taskdata.fin) {
+      alert("debe agregar la fecha fin")
+      return
+    }
+
+
     setId(projectId._id);
-    console.log(id);
-    const response = await axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/data/updatedata`, { 
+    const response = await axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/data/updatedata`, {
       id: id,
       comentario: taskdata.comentario,
-      inicio:taskdata.inicio,
-      fin:taskdata.fin,
-      avance:taskdata.avance });
-    console.log(response);
+      inicio: taskdata.inicio,
+      fin: taskdata.fin,
+      avance: taskdata.avance,
+      usuario:  user.email});
+
+    setShowMessage(true);
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 1200);
+    router.push("/review");
   };
 
   return (
     <>
       <Navbar />
+      {showMessage && <div className={styles.notification}>¡Mensaje de notificación!</div>}
       <div className={styles.maincontainer}>
 
         <div className={styles.activitycontainer}>
@@ -80,17 +123,17 @@ export default function ProjectDetails({ projectId }) {
         <div className={styles.datescontainer}>
           <div>
             <h1>Inicio</h1>
-            <input name='inicio' type='datetime-local' onChange={taskupdate}></input>
+            <input name='inicio' type='datetime-local' defaultValue={projectId.inicioreal} onChange={taskupdate}></input>
           </div>
 
           <div>
             <h1>Fin</h1>
-            <input name='fin' type='datetime-local' onChange={taskupdate}></input>
+            <input name='fin' type='datetime-local' defaultValue={projectId.finreal} onChange={taskupdate}></input>
           </div>
         </div>
         <div className={styles.progresscontainer}>
           <h1>Avance</h1>
-          <input name='avance' type='number' max={100} onChange={taskupdate}></input>
+          <input name='avance' type='number' max={100} defaultValue={projectId.avance} value={taskdata.avance} onChange={taskupdate}></input>
         </div>
 
         <div className={styles.buttoncontainer}>
@@ -101,21 +144,18 @@ export default function ProjectDetails({ projectId }) {
   );
 }
 
+
+
+
+
 export async function getServerSideProps({ params }) {
 
-  console.log(params);
-  console.log(params.id);
   console.log("ejecutando getserversideprops");
-  //const response = await getfiltereddata({ projectId: params.id })
   const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/data/filtereddata`, { params: { id: params.id } })
-  console.log(response);
-  console.log(response.data);
-  console.log(response.data.data);
   const data = response.data;
 
   return {
     props: {
-      // projectId: response,
       projectId: data,
     },
   };

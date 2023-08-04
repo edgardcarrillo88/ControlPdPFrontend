@@ -1,6 +1,5 @@
 import axios from 'axios';
 import styles from '../styles/review.module.css'
-// import data from '../project.json'
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -8,10 +7,20 @@ import { useEffect, useState } from 'react';
 export default function tableproject({ filter }) {
 
     const [data, setData] = useState([])
+    const [fechaActual, setFechaActual] = useState(new Date());
+
+    useEffect(() => {
+
+        async function updatestatus() {
+            const response =  await axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/data/updatestatus`,{ fechaActual: fechaActual.toISOString() })
+        }
+        updatestatus()
+    }, [])
 
     useEffect(() => {
 
         async function fetchData() {
+            // await axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/data/updatestatus`)
             const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/data/data`)
             const { data } = response.data;
             setData(data)
@@ -38,14 +47,14 @@ export default function tableproject({ filter }) {
                 <table>
                     <thead>
                         <tr>
-                            <th>Nivel</th>
-                            <th>WBS</th>
+                            <th>Id</th>
+                            <th>Area</th>
                             <th>Descripción</th>
                             <th>OT</th>
                             <th>TAG</th>
                             <th>Inicio</th>
                             <th>Fin</th>
-                            <th>Avance</th>
+                            <th>Avance (%)</th>
                             <th>Estado</th>
                             <th>Responsable</th>
                             <th>Contratista</th>
@@ -57,13 +66,27 @@ export default function tableproject({ filter }) {
                         {
                             filteredData.map(option => (
                                 <tr>
-                                    <td>{option.nivel}</td>
-                                    <td>{option.WBS}</td>
+                                    <td>{option.id}</td>
+                                    <td>{option.area}</td>
                                     <td>{option.descripcion}</td>
                                     <td>{option.OT}</td>
                                     <td>{option.TAG}</td>
-                                    <td>{option.inicioplan}</td>
-                                    <td>{option.finplan}</td>
+                                    <td>{new Date(option.inicioplan).toLocaleString('es-ES', {
+                                  timeZone: 'UTC',
+                                  day: '2-digit',
+                                  month: '2-digit',
+                                  year: 'numeric',
+                                  hour: '2-digit',
+                                  minute: '2-digit'
+                                })}</td>
+                                    <td>{new Date(option.finplan).toLocaleString('es-ES', {
+                                  timeZone: 'UTC',
+                                  day: '2-digit',
+                                  month: '2-digit',
+                                  year: 'numeric',
+                                  hour: '2-digit',
+                                  minute: '2-digit'
+                                })}</td>
                                     <td>{option.avance}</td>
                                     <td>{option.estado}</td>
                                     <td>{option.responsable}</td>

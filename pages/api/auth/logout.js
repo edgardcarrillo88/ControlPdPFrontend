@@ -12,7 +12,7 @@ export default function Handler(req,res) {
     }
 
     try {
-        verify(MyTokenName,'secret')
+        verify(MyTokenName,process.env.NEXT_PUBLIC_secrettoken)
         const serialized = serialize('MyTokenName',null,{
             httpOnly:true,
             secure:false,

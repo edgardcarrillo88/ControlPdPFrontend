@@ -2,6 +2,7 @@ import styles from '../styles/review.module.css'
 import { useRef } from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useAppContext } from './stateoptions'
 
 
 export default function optionbar({ handleFilterChange, clearFilter }) {
@@ -10,13 +11,14 @@ export default function optionbar({ handleFilterChange, clearFilter }) {
     const [datafilter, setDatafilter] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
+    const options = useAppContext()
+
+
     useEffect(() => {
         async function fetchData() {
             const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/data/filters`)
             const { data } = response.data;
-            console.log(data);
             setDatafilter(data)
-            console.log(data);
             setIsLoading(false);
         }
         fetchData();
@@ -36,7 +38,7 @@ export default function optionbar({ handleFilterChange, clearFilter }) {
 
     return (
         <>
-            <div className={styles.optionbar}>
+            <div className={styles.optionbar} style={{display: options.isOpen ? "block":"none" }}>
                 {!isLoading && (
                     <div>
                         <div>

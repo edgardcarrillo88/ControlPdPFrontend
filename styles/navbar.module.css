@@ -16,11 +16,32 @@
     justify-content: space-between;
     gap: 1rem;
 }
-.loginoption{
 
+.navbaroption{
+    display: flex;
 }
-.linkoption{
 
+
+  /* Estilos generales para el login que se aplicarán a todas las pantallas */
+  /* Agrega tus estilos generales aquí */
+
+/* Estilos específicos para pantallas de celular */
+@media screen and (max-width: 600px) {
+    .navbaroption{
+        display: none;
+    }
+
+    
 }
-  
-
+/* Estilos específicos para pantallas de laptop */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  /* .mobilemenu{
+    display: none;
+  } */
+}
+/* Estilos específicos para pantallas wide */
+@media screen and (min-width: 1025px) {
+ /* .mobilemenu{
+    display: none;
+ } */
+}

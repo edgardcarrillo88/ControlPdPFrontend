@@ -99,6 +99,42 @@
     border: 0px;
 }
 
+
+/* NotificationMessage.module.css */
+.notification {
+    background-color: #3ec016;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    opacity: 0; /* Inicialmente, el mensaje estará oculto */
+    animation: fadeInOut 2s forwards; /* Animación para aparecer */
+  }
+  
+  /* Animación para aparecer y desaparecer */
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0; /* Empieza completamente transparente */
+      transform: translateY(20px); /* Empieza 20px más abajo */
+    }
+    50% {
+      opacity: 1; /* A mitad de la animación, estará completamente visible */
+      transform: translateY(0); /* A mitad de la animación, estará en su posición normal */
+    }
+    100% {
+      opacity: 0; /* Al final de la animación, estará completamente transparente */
+      transform: translateY(-20px); /* Al final de la animación, estará 20px más arriba */
+    }
+  }
+  
+  
+
+
 }
 
 

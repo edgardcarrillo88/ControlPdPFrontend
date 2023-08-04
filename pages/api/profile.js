@@ -6,7 +6,7 @@ export default function profileHandler(req,res) {
 
     
     try {
-        const user = verify(MyTokenName,'secret')//este secret viene del jsw.sign, este secret puede ser una variable de entorno
+        const user = verify(MyTokenName,process.env.NEXT_PUBLIC_secrettoken)//este secret viene del jsw.sign, este secret puede ser una variable de entorno
         console.log(user);
         return(
             res.json({
