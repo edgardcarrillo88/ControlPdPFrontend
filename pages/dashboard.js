@@ -28,6 +28,10 @@ export default function dashboard() {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/data/delete`)
     }
 
+    const deltehistory = async () =>{
+        await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/data/deletehistory`)
+    }
+
     return (
         <>
             <Navbar />
@@ -37,6 +41,7 @@ export default function dashboard() {
                 <button onClick={() => getprofile()}>get profile</button>
                 <button onClick={() => logoutProfile()}>LogOut</button>
                 <button onClick={deleteall}>borrar datos</button>
+                <button onClick={deltehistory}>borrar historico</button>
             </div>
         </>
     )

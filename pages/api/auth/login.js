@@ -8,8 +8,8 @@ export default function loginHandler(req, res) {
     if (email === req.body.email) {
         const token = jwt.sign({
             exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30,
-            email: 'ea_carrillo@hotmail.com',
-            username: 'carrillo'
+            email: req.body.email,
+            username: req.body.email
         }, process.env.NEXT_PUBLIC_secrettoken)//este secret debería ser una variable de entorno
 
         const serialized = serialize('MyTokenName',token,{
