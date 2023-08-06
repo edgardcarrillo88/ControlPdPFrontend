@@ -32,7 +32,7 @@
     color: white;
 }
 
-.options button{
+/* .options button{
     height: 40px;
     width: 120px;
     border-radius: 20px;
@@ -41,6 +41,24 @@
     color: white;
     background-color: transparent;
     margin-left: 20px;
+} */
+
+.buttonlogin{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 40px;
+    width: 120px;
+    border-radius: 20px;
+
+    text-decoration: none;
+    border:2px solid #47b2e4;
+    color: white;
+    background-color: transparent;
+    margin-left: 20px;
+
+    
 }
 
 .body{
@@ -54,7 +72,7 @@
 }
 
 .body div{
-    min-height: 60vh;
+    min-height: 70vh;
     display: flex;
     align-items: start;
 }
@@ -85,7 +103,6 @@
     justify-content: center;
     background-size: cover;
     background-position: center;
-    height: 10px;
 }
 
 .logo img{

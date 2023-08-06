@@ -1,4 +1,5 @@
 import styles from '../styles/main.module.css'
+import Link from "next/link";
 
 
 export default function Home() {
@@ -17,7 +18,8 @@ export default function Home() {
             <h1>Option 2</h1>
             <h1>Option 3</h1>
             <h1>Option 4</h1>
-            <button>Login</button>
+            {/* <button>Login</button> */}
+            <Link className={styles.buttonlogin} href="/login">Login</Link>
           </div>
         </div>
         <div className={styles.body}>
@@ -26,7 +28,7 @@ export default function Home() {
             <p>Parada de Planta Marcobre</p>
           </div>
           <div className={styles.logo}>
-            <img src={logo} height={1000} alt='logo'/>
+            <img src={logo} alt='logo'/>
           </div>
         </div>
       </div>
