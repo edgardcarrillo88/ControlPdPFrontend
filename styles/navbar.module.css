@@ -2,24 +2,54 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     border: 1px solid rgb(160, 156, 156);
-    padding: 1rem;
-    border-radius: 20px;
-    margin-bottom: 2rem;
-    
+    /* padding: 1rem; */
+    background-color: #37517e;
+    width: 100%;
+    height: 7vh;
 
+    position: fixed;
+    top: 0;
+  left: 0;
 }
+
+
 .navbaroption{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 1rem;
+    text-decoration: none;
 }
 
-.navbaroption{
-    display: flex;
+.linkoption{
+  text-decoration: none;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.loginoption{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 40px;
+  width: 120px;
+  border-radius: 20px;
+
+  text-decoration: none;
+  border:2px solid #47b2e4;
+  color: white;
+  background-color: transparent;
+  margin-left: 20px;    
+}
+
+.mobilemenu{
+  color: white;
+}
+
+
 
 
   /* Estilos generales para el login que se aplicarán a todas las pantallas */
@@ -29,6 +59,23 @@
 @media screen and (max-width: 600px) {
     .navbaroption{
         display: none;
+    }
+
+    .loginoption{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      height: 20px;
+      width: 80px;
+      border-radius: 20px;
+      font-size: x-small  ;
+    
+      text-decoration: none;
+      border:2px solid #47b2e4;
+      color: white;
+      background-color: transparent;
+      margin-left: 200px;    
     }
 
     

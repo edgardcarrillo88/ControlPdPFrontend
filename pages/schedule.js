@@ -2,6 +2,7 @@ import axios from 'axios'
 import Navbar from '../component/navbar'
 import { useState } from 'react'
 import styles from '../styles/schedule.module.css';
+import Stateoptions from '../component/stateoptions'
 
 export default function schedule(params) {
 
@@ -34,13 +35,15 @@ export default function schedule(params) {
 
     return (
         <>
-            <Navbar />
-            <div className={styles.dropcontainer}>
-                <p className={styles.droptitle}>Cargar formato de cronograma</p>
-                <input className={styles.inputfile} type='file' name='file' id='fileuploaded' value={file} onChange={handlefile}></input>
-                <br />
-                <button className={styles.buttonupload} onClick={sendfile}>Enviar archivo</button>
-            </div>
+            <Stateoptions>
+                <Navbar />
+                <div className={styles.dropcontainer}>
+                    <p className={styles.droptitle}>Cargar formato de cronograma</p>
+                    <input className={styles.inputfile} type='file' name='file' id='fileuploaded' value={file} onChange={handlefile}></input>
+                    <br />
+                    <button className={styles.buttonupload} onClick={sendfile}>Enviar archivo</button>
+                </div>
+            </Stateoptions>
         </>
     )
 };  

@@ -6,12 +6,7 @@
 }
 
 
-.table {
-    width: 80vw;
-    margin: 0 auto;
-    border-radius: 20px;
-    overflow-x: auto;
-}
+
 
 .table table{
     border-collapse: collapse;
@@ -67,16 +62,19 @@
         border-radius: 10px;
         overflow-x: auto;
         font-size: x-small;
+        margin-top: 50px;
     }
 
     .optionbar{
         background-color: white;
         border: 1px solid rgb(133, 130, 130);
+        margin-top: 50px;
         width: 50%;
         height: 100vh;
-        border-radius: 10px;
+        border-radius: 5px;
         position: fixed;
         z-index: 9999;
+        
     }
 
     .optionbarchild{
@@ -85,6 +83,21 @@
         margin-left: 5px;
     }
 
+    .pagelinks{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .linkoption{
+        text-decoration: none;
+        margin-bottom: 15px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: small;
+    }
+
+
     .filtertitles{
         border-bottom: 1px solid black;
         display: flex;
@@ -92,6 +105,7 @@
         height: 30px;
         margin: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: small;
     }
 
     .filteroptions{
@@ -99,6 +113,7 @@
         width: 100px;
         height: 30px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: small;
         margin-top: 5px;
     }
 
@@ -118,11 +133,23 @@
 @media screen and (min-width: 601px) and (max-width: 1024px) {
 
     .optionbar{
-        width: 20vw;
+        width: 25vw;
         height: 100vh;
         border: 1px solid rgb(133, 130, 130);
         border-radius: 10px;
         margin-right: 10px;
+        position: fixed;
+        z-index: 9999;
+        background-color: white;
+        margin-top: 85px;
+    }
+
+    .table {
+        width: 100vw;
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow-x: auto;
+        margin-top: 85px;
     }
     
     .optionbarchild{
@@ -139,6 +166,11 @@
         margin: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
+    .pagelinks{
+        display: none;
+    }
+
     
     .filteroptions{
 
@@ -151,7 +183,7 @@
     .clearfilter{
         margin-right: 20px;
         border: none;
-        background: #18a324;
+        background: #084cdf;
         padding: 10px 20px;
         border-radius: 10px;
         color: #fff;
@@ -167,17 +199,32 @@
 @media screen and (min-width: 1025px) {
  
     .optionbar{
-        width: 20vw;
+        width: 16vw;
         height: 100vh;
         border: 1px solid rgb(133, 130, 130);
         border-radius: 10px;
-        margin-right: 10px;
+        margin-top: 80px;
+        position: fixed;
+        z-index: 9999;
+        background-color: white;
+    }
+
+    .table {
+        width: 100vw;
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow-x: auto;
+        margin-top: 80px;
     }
     
     .optionbarchild{
         margin-bottom: 20px;
         margin-right: 5px;
         margin-left: 5px;
+    }
+
+    .pagelinks{
+        display: none
     }
     
     .filtertitles{

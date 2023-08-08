@@ -42,10 +42,11 @@ export default function register() {
         <>
             <Navbar />
             <div className={styles.container}>
-                <h1>Registrarse</h1>
+                
                 <form className={styles.form}
                 //onSubmit={handleSubmit}
                 >
+                    <img src='https://statics.turecibo.com/media/custom/login/marcobre_logo.jpg' alt='Logo' width={220} height={50} />
                     <input
                         className={styles.input}
                         name="usuario"

@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+    border: 1px solid rgb(160, 156, 156);
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(https://statics.turecibo.com/media/custom/login/marcobre_bg.jpg);
+    background-size: cover;
+    background-position: center top;
+  }
+
+
+
+  /* Estilos generales para el login que se aplicarán a todas las pantallas */
+  /* Agrega tus estilos generales aquí */
+
+/* Estilos específicos para pantallas de celular */
+@media screen and (max-width: 600px) {
+    .powerbi{
+        width: 90vw;
+        height: 40vh;
+        margin-right: auto;
+        margin-left: auto;
+    }
+  
+}
+/* Estilos específicos para pantallas de laptop */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .powerbi{
+        width: 90vw;
+        height: 40vh;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+/* Estilos específicos para pantallas wide */
+@media screen and (min-width: 1025px) {
+    .powerbi{
+        width: 65vw;
+        height: 80vh;
+        margin-right: auto;
+        margin-left: auto;
+    }
+  
+}

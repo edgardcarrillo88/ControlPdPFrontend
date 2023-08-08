@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAppContext } from './stateoptions'
+import Link from "next/link";
 
 
 export default function optionbar({ handleFilterChange, clearFilter }) {
@@ -38,7 +39,7 @@ export default function optionbar({ handleFilterChange, clearFilter }) {
 
     return (
         <>
-            <div className={styles.optionbar} style={{display: options.isOpen ? "block":"none" }}>
+            <div className={styles.optionbar} style={{ display: options.isOpen ? "block" : "none" }}>
                 {!isLoading && (
                     <div>
                         <div>
@@ -82,6 +83,11 @@ export default function optionbar({ handleFilterChange, clearFilter }) {
                 {isLoading && <p>Cargando datos...</p>}
                 <div className={styles.optionbarchild}>
                     <button className={styles.clearfilter} onClick={handleClearFilter}>Limpiar filtros</button>
+                </div>
+                <div className={styles.pagelinks}>
+                    <Link className={styles.linkoption} href="/schedule">Cargar de cronograma</Link>
+                    <Link className={styles.linkoption} href="/review">Revision de cronograma</Link>
+                    <Link className={styles.linkoption} href="/dashboard">Dashboard</Link>
                 </div>
             </div>
         </>
