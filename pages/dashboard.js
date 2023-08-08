@@ -40,8 +40,8 @@ export default function dashboard() {
                 {/* <p>{JSON.stringify(user, null, 2)}</p>
                 <button onClick={() => getprofile()}>get profile</button>
                 <button onClick={() => logoutProfile()}>LogOut</button> */}
-                <button onClick={deleteall}>borrar datos</button>
-                <button onClick={deltehistory}>borrar historico</button>
+                {/* <button onClick={deleteall}>borrar datos</button>
+                <button onClick={deltehistory}>borrar historico</button> */}
 
                 <iframe
                     title="Report Section"
