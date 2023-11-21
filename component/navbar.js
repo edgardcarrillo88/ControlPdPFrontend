@@ -54,6 +54,9 @@ export default function Menu() {
             <div className={style.navbaroption}>
                 <Link className={style.linkoption} href="/schedule">Cargar de cronograma</Link>
                 <Link className={style.linkoption} href="/review">Revision de cronograma</Link>
+                <Link className={style.linkoption} href="/planner">Planeamiento</Link>
+                <Link className={style.linkoption} href="/valorizaciones">Valorizaciones</Link>
+                <Link className={style.linkoption} href="/Provisiones">Provisiones</Link>
                 <Link className={style.linkoption} href="/dashboard">Dashboard</Link>
             </div>
             <div className={style.loginoption}>

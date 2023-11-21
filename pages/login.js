@@ -23,10 +23,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(credentials);
-    console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
     const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users/verify`, { params: credentials });
-    console.log(response.data);
     if (response.data.data === process.env.NEXT_PUBLIC_LOGIN_VERIFY && response.data.verify === true) {
       const verifysesion = await axios.post(`/api/auth/login`, credentials);
       if (verifysesion.status === 200) {

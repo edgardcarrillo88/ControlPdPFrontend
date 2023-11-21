@@ -9,6 +9,8 @@ export default function ProjectDetails({ projectId }) {
 
   console.log(projectId);
 
+  const [isDisabled, setIsDisabled] = useState(false);
+
   const [showMessage, setShowMessage] = useState(false);
 
   const [user, setUser] = useState({
@@ -85,16 +87,27 @@ export default function ProjectDetails({ projectId }) {
       avance: taskdata.avance,
       usuario: user.email,
       lastupdate: fechaActual,
-      vigente:"Si",
+      vigente: "Si",
       idtask: projectId.id
     });
 
+    console.log(showMessage);
     setShowMessage(true);
     setTimeout(() => {
+      console.log("ejecutando temporizador");
       setShowMessage(false);
     }, 3000);
     router.push("/review");
   };
+
+
+  const handleCancelActivity = () => {
+    setIsDisabled(!isDisabled)
+  }
+
+
+
+
 
   return (
     <>
@@ -125,22 +138,26 @@ export default function ProjectDetails({ projectId }) {
 
           <h1>Comentarios de la actividad</h1>
           <textarea name='comentario' onChange={taskupdate} />
+          <div>
+            <input type="checkbox" value="Paneer" onChange={handleCancelActivity} />
+            <label>Actividad cancelada</label>
+          </div>
         </div>
 
         <div className={styles.datescontainer}>
           <div>
             <h1>Inicio</h1>
-            <input name='inicio' type='datetime-local' defaultValue={projectId.inicioreal} onChange={taskupdate}></input>
+            <input name='inicio' type='datetime-local' disabled={isDisabled} defaultValue={projectId.inicioreal} onChange={taskupdate}></input>
           </div>
 
           <div>
             <h1>Fin</h1>
-            <input name='fin' type='datetime-local' defaultValue={projectId.finreal} onChange={taskupdate}></input>
+            <input name='fin' type='datetime-local' disabled={isDisabled} defaultValue={projectId.finreal} onChange={taskupdate}></input>
           </div>
         </div>
         <div className={styles.progresscontainer}>
           <h1>Avance</h1>
-          <input name='avance' type='number' max={100} defaultValue={projectId.avance} value={taskdata.avance} onChange={taskupdate}></input>
+          <input name='avance' type='number' disabled={isDisabled} max={100} defaultValue={projectId.avance} value={taskdata.avance} onChange={taskupdate}></input>
         </div>
 
         <div className={styles.buttoncontainer}>

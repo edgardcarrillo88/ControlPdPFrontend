@@ -48,9 +48,9 @@ export default function tableproject({ filter }) {
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Area</th>
+                            {/* <th>Area</th> */}
                             <th>Descripción</th>
-                            <th>OT</th>
+                            {/* <th>OT</th> */}
                             <th>TAG</th>
                             <th>Inicio</th>
                             <th>Fin</th>
@@ -67,9 +67,9 @@ export default function tableproject({ filter }) {
                             filteredData.map(option => (
                                 <tr>
                                     <td>{option.id}</td>
-                                    <td>{option.area}</td>
+                                    {/* <td>{option.area}</td> */}
                                     <td>{option.descripcion}</td>
-                                    <td>{option.OT}</td>
+                                    {/* <td>{option.OT}</td> */}
                                     <td>{option.TAG}</td>
                                     <td>{new Date(option.inicioplan).toLocaleString('es-ES', {
                                   timeZone: 'UTC',

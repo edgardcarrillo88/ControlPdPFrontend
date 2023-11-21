@@ -12,11 +12,9 @@ export default function stateoptions({ children }) {
 
     function handleOpenCart() {
         SetIsOpen(true)
-        console.log("open");
     }
 
     function handleCloseCart() {
-        console.log("la lora");
         SetIsOpen(false)
     }
 

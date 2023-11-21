@@ -15,7 +15,8 @@ export default function Home() {
           </div>
           <div className={styles.options}>
             <h1>Parada de Planta</h1>
-            <h1>Option 2</h1>
+            <Link href="/planner">Planeamiento</Link>
+            <Link href="/planner">Valorizaciones</Link>
             <h1>Option 3</h1>
             <h1>Option 4</h1>
             {/* <button>Login</button> */}

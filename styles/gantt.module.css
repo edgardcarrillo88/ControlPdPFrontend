@@ -1,0 +1,136 @@
+.mainoptionbar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-left: 250px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 10px;
+
+  width: 300px;
+  
+}
+
+
+.mainbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-left: 250px;
+    padding: 0%;
+
+    height: 100px;
+
+    font-size: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mainbar div {
+    transform: rotate(-90deg);
+}
+
+
+/* .App {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .App h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .timeline {
+    position: relative;
+    height: 20px;
+    background-color: #ad1111;
+    margin: 0 auto;
+  }
+  
+  .start-time,
+  .end-time {
+    position: absolute;
+    top: -20px;
+    font-size: 12px;
+  }
+  
+  .progressbar {
+    position: absolute;
+    height: 40px;
+    background-color: #0074d9;
+  }
+  
+  .progresshandle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #0074d9;
+    width: 10px;
+    height: 20px;
+    cursor: grab;
+  }
+  
+  .progresslabel {
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    padding: 2px;
+  }
+  
+  .progress-handle:active {
+    cursor: grabbing;
+  } */
+  
+  /* Estilos para la barra de tiempo */
+.timeline {
+  position: relative;
+  height: 40px;
+  /* background-color: #f0f0f0; */
+  /* border: 1px solid #ccc; */
+  margin-top: 0px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: 250px;
+}
+
+/* Estilos para las fechas en la barra de tiempo */
+.timeline p {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Estilos para las barras de tareas */
+.task {
+  position: absolute;
+  height: 100%;
+  background-color: #3498db;
+  opacity: 0.7;
+  border: 1px solid #2980b9;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos para las etiquetas de las tareas */
+.task label {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Opcional: Estilos para resaltar la tarea seleccionada */
+.task.selected {
+  background-color: #e74c3c;
+  border: 1px solid #c0392b;
+}
